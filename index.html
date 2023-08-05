@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/inulute_icn.ico" type="image/x-icon" />
     <title>UPI Donation</title>
 </head>
 <body>
@@ -19,17 +20,8 @@
                     <button id="copy-button" class="copy-button">Copy</button>
                 </div>
             </div>
-            
-            
-            
         </div>
         
-        <div class="donate-container" align="center">
-            <p class="donate-text">Using mobile device? Click button below</p>
-            <a href="upi://pay?pa=inulute@boi&pn=inulute&cu=INR" class="donate-link"> <!-- Change your UPI ID and name "upi://pay?pa=<Your UPI ID>&pn=<Your Name>&cu=INR" -->
-                <img src="assets/upi.svg" alt="Donate with UPI" height="auto" width="250" style="border-radius: 5px;">
-            </a>
-        </div>
     </div>
 
     <script>document.addEventListener("DOMContentLoaded", function () {
@@ -53,6 +45,10 @@
                 copyButton.textContent = "Copy";
             }, 2500);
         });
+
+        document.addEventListener("contextmenu", function(event) {
+        event.preventDefault();
+    });
     });
     </script>
 </body>

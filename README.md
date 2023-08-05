@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="assets/upi_logo.png" alt="Project Logo" width="200">
+    <img src="assets/upi_logo.svg" alt="Project Logo" width="200">
     <h1>UPI Donation Page</h1>
     <p>Simple UPI Details Page with Click-to-Copy functionality to receive UPI Donations.</p>
 </div>
