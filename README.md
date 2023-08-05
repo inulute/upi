@@ -96,13 +96,13 @@ If you find this project useful, consider buying me a coffee to show your suppor
 
 <div align="center">
 
-<a href="https://paypal.me/inulute"><img src="assets/paypal.svg" alt="PayPal" height="41"></a>
-<a href="https://www.buymeacoffee.com/inulute" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" style="border-radius: 5px;"></a>
 <a href="https://ko-fi.com/inulute"><img height='41' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' alt='Buy Me a Coffee at ko-fi.com'></a>
-<a href="https://inulute.github.io/upi">
-<img src="assets/upi.svg" alt="UPI Pay" height="41" style="border-radius: 5px;">
-</a> <br>
-<em><strong>UPI ID: inulute@boi</strong></em>
+
+<a href="https://www.buymeacoffee.com/inulute" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="45"></a> 
+
+<a href="https://www.paypal.me/inulute"><img src="assets/paypal.svg" alt="PayPal" height="41"></a>
+
+<a href="https://upi-inulute.vercel.app"> <img src="assets/upi.svg" alt="UPI Pay" height="41"></a>
 
 </div>
 
