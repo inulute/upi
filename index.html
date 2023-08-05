@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>UPI Payment</title>
+</head>
+<body>
+    <div class="container">
+        <div class="qr-container">
+            <div class="qr-code">
+                <img src="assets/qr-code.png" alt="UPI QR Code">
+            </div>
+            <div class="upi-id">
+                <p>Scan the QR code or use the UPI ID:</p>
+                <p>
+                    <strong id="upi-id">inulute@boi</strong>
+                    <button id="copy-button" class="copy-button">Copy</button>
+                </p>
+            </div>
+            
+            
+        </div>
+        
+        <div class="donate-container" align="center">
+            <p class="donate-text">Using mobile device? Click button below</p>
+            <a href="upi://pay?pa=inulute@boi&pn=inulute&cu=INR" class="donate-link">
+                <img src="assets/upi.svg" alt="Donate with UPI" height="auto" width="250" style="border-radius: 5px;">
+            </a>
+        </div>
+    </div>
+
+    <script>document.addEventListener("DOMContentLoaded", function () {
+        const copyButton = document.getElementById("copy-button");
+        const upiIdText = document.getElementById("upi-id");
+    
+        copyButton.addEventListener("click", function () {
+            const textToCopy = upiIdText.textContent;
+            
+            const tempInput = document.createElement("input");
+            tempInput.value = textToCopy;
+            document.body.appendChild(tempInput);
+            
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+            
+            copyButton.textContent = "Copied!";
+            
+            setTimeout(function () {
+                copyButton.textContent = "Copy";
+            }, 2500);
+        });
+    });
+    </script>
+</body>
+</html>
