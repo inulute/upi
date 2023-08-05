@@ -29,7 +29,7 @@ You can see a live demo of the UPI Payment Page by clicking the button below.
 
 <div align="center">
 
-[![Demo](https://img.shields.io/badge/Demo-Live-brightgreen?style=for-the-badge)](https://inulute.github.io/upi)
+[![Demo](https://img.shields.io/badge/Demo-Live-brightgreen?style=for-the-badge)](https://upi-inulute.vercel.app)
 </div>
 
 
@@ -54,7 +54,7 @@ Want to create a similar project? Follow these steps to build your own UPI Payme
 
 2. **Navigate to the Project Directory:** Move into the project directory:
    ```sh
-   cd your-repo
+   cd upi
    ```
 
 3. **Customize Content:** Customize the `index.html` file to include your own QR code, UPI ID, and other content.
@@ -95,17 +95,20 @@ Contributions are welcome! If you find any issues or want to add enhancements, f
 If you find this project useful, consider buying me a coffee to show your support! 😄
 
 <div align="center">
-
-<a href="https://ko-fi.com/inulute"><img height='41' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' alt='Buy Me a Coffee at ko-fi.com'></a>
-
-<a href="https://www.buymeacoffee.com/inulute" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="45"></a> 
-
-<a href="https://www.paypal.me/inulute"><img src="assets/paypal.svg" alt="PayPal" height="41"></a>
-
-<a href="https://upi-inulute.vercel.app"> <img src="assets/upi.svg" alt="UPI Pay" height="41"></a>
-
+    <a href="https://ko-fi.com/inulute">
+        <img height='41' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' alt='Buy Me a Coffee at ko-fi.com'></a>
+    <a href="https://www.buymeacoffee.com/inulute" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height= 41px ></a>
+  <a href="https://paypal.me/inulute"><img src="assets/paypal.svg" alt="PayPal" height="41" width="174"></a>
+  <a href="https://upi-inulute.vercel.app/">
+      <img src="assets/upi.svg" alt="UPI Pay" height="41" width="174">
+  </a> <br>
 </div>
 
 > [!NOTE]  
 > UPI is only available for Indian users.
-</div>
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
