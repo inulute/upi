@@ -27,13 +27,16 @@ body {
     margin-top: 20px;
     margin-bottom: 20px;
     max-width: 350px;
+    overflow-x: hidden;
+    margin: 5%;
+      
 }
 
 
 .qr-code img {
     max-width: 100%;
     height: auto;
-}
+  }
 
 .upi-id {
     margin-top: 10px;
