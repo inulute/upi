@@ -4,8 +4,8 @@ body {
     padding: 0;
     background-color: #f2f2f2;
     user-select: none;
-    background: url('/assets/upi_logo.svg') repeat;
-    background-size: 50px 75px;
+    height: auto;
+    background-image: url("/assets/background.svg");
 }
 
 .container {
@@ -13,7 +13,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
 }
 
 .qr-container {
@@ -24,11 +23,12 @@ body {
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0.2, 0.2, 0.2, 0.2);
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     max-width: 350px;
     overflow-x: hidden;
     margin: 5%;
+    height: auto;
       
 }
 
@@ -37,11 +37,6 @@ body {
     max-width: 100%;
     height: auto;
   }
-
-.upi-id {
-    margin-top: 10px;
-    text-align: center;
-}
 
 .upi-id {
     margin-top: 20px;
@@ -83,3 +78,12 @@ body {
 * {
     -webkit-tap-highlight-color: transparent;
   }
+.upi-icon {
+    width: 40px;
+    height: auto;
+    margin-top: 10px;
+
+}
+
+
+
