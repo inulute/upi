@@ -4,15 +4,17 @@ body {
     padding: 0;
     background-color: #f2f2f2;
     user-select: none;
-    height: auto;
-    background-image: url("/assets/background.svg");
+    background: #91ddf8; 
 }
+
+
 
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100vh;
 }
 
 .qr-container {
@@ -23,22 +25,19 @@ body {
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0.2, 0.2, 0.2, 0.2);
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     max-width: 350px;
-    overflow-x: hidden;
     margin: 5%;
-    height: auto;
-      
+    
 }
-
 
 .qr-code img {
     max-width: 100%;
     height: auto;
-  }
+}
 
-.upi-id {
+.payment-info {
     margin-top: 20px;
     text-align: center;
 }
@@ -50,8 +49,7 @@ body {
     margin-top: 10px; 
 }
 
-
-.upi-id strong {
+.payment-info strong {
     color: #007bff;
     user-select: text;
     display: inline-block;
@@ -70,20 +68,36 @@ body {
     cursor: pointer;
 }
 
-
-.upi-id p {
-    margin: 0;
-}
-
 * {
     -webkit-tap-highlight-color: transparent;
-  }
+}
+
 .upi-icon {
     width: 40px;
     height: auto;
     margin-top: 10px;
-
 }
 
+.toggle-payment {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
 
+.toggle-payment:hover {
+    text-decoration: underline;
+}
 
+#watermark::after {
+    content: "Made with ❤️ by Inulute";
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    color: rgba(0, 0, 0, 0.2); /* Semi-transparent */
+    font-size: 12px;
+    z-index: 9999;
+    pointer-events: none;
+}

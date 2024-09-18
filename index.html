@@ -4,66 +4,161 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="assets/inulute_icn.ico" type="image/x-icon" />
+    <link rel="icon" href="assets/logo.svg" type="image/x-icon" />
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <script>
-        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-      </script>
-      <script defer src="/_vercel/insights/script.js"></script>
-    <title>UPI inulute@boi</title>
+    <title>Donate inulute@boi</title>
+    <style>
+        /* Add styles for the loading spinner */
+        .spinner {
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-container {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+        <!-- QR Section -->
         <div class="qr-container">
-            <div class="qr-code">
-                <img src="assets/qr-code.png" alt="UPI QR Code">
+            <div class="loading-container">
+                <div class="spinner"></div>
+                <p>Loading...</p>
             </div>
-            <div class="upi-id">
-                <p>Scan the QR code or use the UPI ID:</p>
+            <div class="qr-code"> 
+                <img id="qr-image" src="assets/qr-code.png" alt="UPI QR Code">
+            </div>
+            <div class="payment-info">
+                <p id="qr-text">Scan the QR code or use the following method</p>
                 <div class="upi-id-content">
-                    <strong id="upi-id">inulute@boi</strong>
-                    <button id="copy-button" class="copy-button">Copy</button>
+                    <strong id="payment-id">inulute@boi</strong>
+                    <button id="payment-button" class="copy-button">Copy</button>
                     <lottie-player 
+                        id="upi-animation"
                         src="https://lottie.host/2b51d7af-7099-49f5-93df-f8190dde11bb/WU9eejAueC.json"
                         background="#FFFFFF"
                         speed="1.5"
                         loop
                         autoplay
                         direction="1"
-                        mode="normal" class="upi-icon"
+                        mode="normal" 
+                        class="upi-icon"
                     ></lottie-player>
                 </div>
             </div>
+            <!-- Toggle between UPI and PayPal -->
+            <a id="toggle-link" href="#" class="toggle-payment">Donate via PayPal? Click Here</a>
         </div>
-        
     </div>
 
-    <script>document.addEventListener("DOMContentLoaded", function () {
-        const copyButton = document.getElementById("copy-button");
-        const upiIdText = document.getElementById("upi-id");
-    
-        copyButton.addEventListener("click", function () {
-            const textToCopy = upiIdText.textContent;
-            
-            const tempInput = document.createElement("input");
-            tempInput.value = textToCopy;
-            document.body.appendChild(tempInput);
-            
-            tempInput.select();
-            document.execCommand("copy");
-            document.body.removeChild(tempInput);
-            
-            copyButton.textContent = "Copied!";
-            
-            setTimeout(function () {
-                copyButton.textContent = "Copy";
-            }, 2500);
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleLink = document.getElementById("toggle-link");
+            const qrImage = document.getElementById("qr-image");
+            const paymentId = document.getElementById("payment-id");
+            const paymentButton = document.getElementById("payment-button");
+            const upiAnimation = document.getElementById("upi-animation");
+            const qrText = document.getElementById("qr-text");
+            const loadingContainer = document.querySelector(".loading-container");
+
+            let isUpi = true;
+
+            // Function to switch to PayPal
+            function switchToPayPal() {
+                loadingContainer.style.display = "block"; // Show loading spinner
+                qrImage.style.display = "none"; // Hide QR image
+
+                qrImage.onload = function() {
+                    loadingContainer.style.display = "none"; // Hide loading spinner
+                    qrImage.style.display = "block"; // Show QR image
+                };
+
+                qrImage.src = "assets/paypal_qr.png"; // Replace with your PayPal QR code image
+                paymentId.textContent = "inulute"; // Replace with your PayPal ID
+                paymentButton.textContent = "Open PayPal";
+                paymentButton.removeEventListener("click", copyUpiId);
+                paymentButton.addEventListener("click", openPayPalLink);
+                toggleLink.textContent = "Donate via UPI? Click Here";
+                upiAnimation.style.display = "none";
+                qrText.textContent = "Scan with any QR scanning app or use the button";
+                isUpi = false;
+            }
+
+            // Function to switch to UPI
+            function switchToUpi() {
+                qrImage.style.display = "none"; // Hide QR image
+                loadingContainer.style.display = "none"; // Hide loading spinner
+
+                qrImage.onload = function() {
+                    qrImage.style.display = "block"; // Show QR image
+                };
+
+                qrImage.src = "assets/qr-code.png"; // Replace with your UPI QR code image
+                paymentId.textContent = "inulute@boi"; // Replace with your UPI ID
+                paymentButton.textContent = "Copy";
+                paymentButton.removeEventListener("click", openPayPalLink);
+                paymentButton.addEventListener("click", copyUpiId);
+                toggleLink.textContent = "Donate via PayPal? Click Here";
+                upiAnimation.style.display = "block";
+                qrText.textContent = "Scan the QR code or use the following method";
+                isUpi = true;
+            }
+
+            // Function to copy UPI ID
+            function copyUpiId() {
+                const tempInput = document.createElement("input");
+                tempInput.value = paymentId.textContent;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+                paymentButton.textContent = "Copied!";
+                setTimeout(function () {
+                    paymentButton.textContent = "Copy";
+                }, 2500);
+            }
+
+            // Function to open PayPal link
+            function openPayPalLink() {
+                window.open("https://www.paypal.com/paypalme/inulute", "_blank");
+            }
+
+            // Toggle between UPI and PayPal when the link is clicked
+            toggleLink.addEventListener("click", function (e) {
+                e.preventDefault();
+                if (isUpi) {
+                    switchToPayPal();
+                } else {
+                    switchToUpi();
+                }
+            });
+
+            // Add the copy functionality for UPI by default
+            paymentButton.addEventListener("click", copyUpiId);
+
+            document.addEventListener("contextmenu", function (event) {
+                event.preventDefault();
+            });
         });
 
-        document.addEventListener("contextmenu", function(event) {
-        event.preventDefault();
-    });
-    });
+        (function() {
+            const message = String.fromCharCode(77, 97, 100, 101, 32, 119, 105, 116, 104, 32, 128149, 32, 98, 121, 32, 73, 110, 117, 108, 117, 116, 101);
+            console.log(message);
+        })();
     </script>
 </body>
 </html>
